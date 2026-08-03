@@ -1,0 +1,3 @@
+# Ignore Windows/C++ build binaries
+*.exe
+*.obj

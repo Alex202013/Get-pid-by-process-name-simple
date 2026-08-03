@@ -24,13 +24,13 @@ DWORD pidByNameFunc(const wchar_t* processName){
 int wmain(int argc, wchar_t* argv[]){
     DWORD pid;
     std::wstring processName;
-    if (argc > 1){
+    if (argc > 1){ // checks if there is any arguments
         processName = argv[1];
     } else {
     std::wcout << "process name (Must include extension (eg .exe, .dll)): ";
-    std::wcin >> processName;
+    std::wcin >> processName; // gets process name from user
     }
-    pid = pidByNameFunc(processName.c_str());
+    pid = pidByNameFunc(processName.c_str()); // transforms process name into a pid
     if (pid == 0){
         std::cout << "Invalid process name " << "\n";
         system("pause");}
