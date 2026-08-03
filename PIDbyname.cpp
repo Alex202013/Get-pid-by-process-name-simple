@@ -1,6 +1,7 @@
 #include <iostream>
 #include <Windows.h>
 #include <TlHelp32.h>
+#include <string>
 
 DWORD pidByNameFunc(const wchar_t* processName){
     DWORD pid = 0;
@@ -20,11 +21,15 @@ DWORD pidByNameFunc(const wchar_t* processName){
         return pid;
         }
 
-int main(){
+int wmain(int argc, wchar_t* argv[]){
     DWORD pid;
     std::wstring processName;
+    if (argc > 1){
+        processName = argv[1];
+    } else {
     std::wcout << "process name (Must include extension (eg .exe, .dll)): ";
     std::wcin >> processName;
+    }
     pid = pidByNameFunc(processName.c_str());
     if (pid == 0){
         std::cout << "Invalid process name " << "\n";
