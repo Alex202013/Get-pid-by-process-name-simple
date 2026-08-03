@@ -25,7 +25,19 @@ int wmain(int argc, wchar_t* argv[]){
     DWORD pid;
     std::wstring processName;
     if (argc > 1){ // checks if there is any arguments
-        processName = argv[1];
+        if (_wcsicmp(argv[1], L"-h") == 0 ||
+            _wcsicmp(argv[1], L"-help") == 0 ||
+            _wcsicmp(argv[1], L"--h") == 0 ||
+            _wcsicmp(argv[1], L"--help") == 0) {
+                std::cout << "PIDbyname.exe <process_name>\n";
+                std::cout << "PIDbyname.exe -h | --h | -help | --help\n\n";
+                std::cout << "Examples:\n";
+                std::cout << "PIDbyname.exe notepad.exe";
+                return 0;
+            }
+        else {
+            processName = argv[1];
+        }
     } else {
     std::wcout << "process name (Must include extension (eg .exe, .dll)): ";
     std::wcin >> processName; // gets process name from user
