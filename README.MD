@@ -54,7 +54,7 @@ if (pid != 0) {
 
 ## Notes
 
-Built while learning Win32/Toolhelp32 APIs — works, but not battle-tested.
+Built while learning Win32/Toolhelp32 APIsworks, but not battle-tested.
 PRs/issues welcome if you spot bugs.
 
 ## License
